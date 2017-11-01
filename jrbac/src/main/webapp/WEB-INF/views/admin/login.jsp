@@ -69,6 +69,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- postdiv 不显示  -->
 	<div style="display: none">
 		<form id="postForm" action="<c:url value='/doLogin.html'/>"	method="post">
 			<input id="postUsername" name="usernamePost"> 
@@ -95,9 +96,9 @@
 <script>
 	$(function() {
 		$("#login-btn").attr("disabled", false);
-		var ctx = $("#ctx").val().trim();
-		var msg = $("#msg").val().trim();
-		var key = $("#key").val().trim();
+		var ctx = $("#ctx").val().trim();//context的路径
+		var msg = $("#msg").val().trim();//后台传过来的消息
+		var key = $("#key").val().trim();//uuid
 		// 显示后台传过来的消息
 		if (msg == '') {
 			// console.info('啥也没有');

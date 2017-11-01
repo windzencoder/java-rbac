@@ -128,7 +128,7 @@ public class LoginController {
 				redirectAttributes.addFlashAttribute("username", username);
 				return "redirect:/login.html";
 			}
-		} catch (Exception e) {
+		} catch (Exception e) {//认证失败
 			redirectAttributes.addFlashAttribute("msg", BaseReturn.response(ErrorCode.FAILURE, "用户名密码错误"));
 			redirectAttributes.addFlashAttribute("username", username);
 			return "redirect:/login.html";

@@ -229,8 +229,25 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		
 	</dependencies>
+
 	<build>
 		<finalName>jrbac</finalName>
+		<plugins>
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.3</version>
+			<configuration>
+				<!-- 指定source和target的版本 -->
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+		</plugins>
 	</build>
+
+
+
 </project>
