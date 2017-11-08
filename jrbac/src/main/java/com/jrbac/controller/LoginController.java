@@ -53,7 +53,7 @@ public class LoginController {
 	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
 	public String login(Model model, HttpSession session) {
 		LoginUser loginUser = (LoginUser) session.getAttribute(Param.SESSION_LOGIN_USER);
-		if (null != loginUser) {
+		if (null != loginUser) {//登录重定向到admin/home/index.html
 			return "redirect:admin/home/index.html";
 		}
 		logger.debug("-----登录页面-----");
@@ -87,7 +87,7 @@ public class LoginController {
 		}
 		logger.debug("-----加解密key:{}-----", key);
 		try {
-			username = DESUtil.decryption(username, key);
+			username = DESUtil.decryption(username, key);//解密得到用户名
 		} catch (Exception e) {
 			logger.error("-----解密出错：{}-----", e.getMessage());
 		}
@@ -102,7 +102,7 @@ public class LoginController {
 				LoginUser loginUser = loginUserService.login(username, password);
 				if (null != loginUser) {
 					// 将用户的所能看到的菜单更新到session中
-					sessionService.setMenuInSession(session, loginUser);
+					sessionService.setMenuInSession(session, loginUser);//在这里保存菜单
 					// 将登录用户信息保存到session中
 					/*
 					 * LoginUserVO loginUserVo = new LoginUserVO();

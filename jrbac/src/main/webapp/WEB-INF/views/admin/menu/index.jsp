@@ -102,6 +102,7 @@
 								<div class="form-group">
 								    <label class="col-sm-2 control-label">菜单名称</label>
 								    <div class="col-sm-10">
+								    <!-- 隐藏的menuId 菜单id -->
 								    	<input id="menuId" type="hidden">
 								      	<input id="menuName" type="text" class="form-control" placeholder="请输入菜单名称">
 								    </div>
@@ -372,8 +373,8 @@
 			return false;
 		}
 		
+		//获取节点
 		var zNodes;
-		
 		function initZtree(){
 			$.ajax({
 				url : ctx + '/admin/role/menuZtree',
@@ -663,7 +664,7 @@
 			}
 		})
 		
-		function addOrUpdateMenu(id,name,order,icon,url,parentId){
+		function addOrUpdateMenu(id,name,order,icon,url,parentId){//添加或更新菜单
 			$.ajax({
 				url : ctx + '/admin/menu/add',
 				type : 'post',

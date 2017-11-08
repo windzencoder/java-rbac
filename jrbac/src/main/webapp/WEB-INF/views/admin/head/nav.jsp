@@ -32,29 +32,30 @@
 		<div class="sidebar-nav navbar-collapse">
 			<ul class="nav" id="side-menu">
 				<c:forEach items="${userMenuList }" var="menu" varStatus="status">
-					<!-- 一级子菜单没有parentId,有url -->
+					<!-- 一级子菜单没有parentId,有url ， 即没有子菜单-->
 					<c:if test="${empty menu.parentId and not empty menu.url}">
-						<li><a href="<c:url value='${menu.url }'/>"> <i
-								class="${menu.icon } fa-fw"></i> ${menu.name }
-						</a></li>
+						<li>
+							<a href="<c:url value='${menu.url }'/>"> <i class="${menu.icon } fa-fw"></i> ${menu.name }</a>
+						</li>
 					</c:if>
-					<!-- 可展开的一级菜单，没有parentId,有url -->
+					<!-- 可展开的一级菜单，没有parentId,有url， 即有子菜单-->
 					<c:if test="${empty menu.parentId and empty menu.url}">
-						<li><a href="#"> <i class="${menu.icon } fa-fw"></i>
-								${menu.name }<span class="fa arrow"></span>
-						</a>
+						<li>
+							<a href="#"> <i class="${menu.icon } fa-fw"></i> ${menu.name }
+								<span class="fa arrow"></span>
+							</a>
 							<ul class="nav nav-second-level">
 								<!-- 没有url的是三级菜单，有url的直接输出到li中 -->
-								<c:forEach items="${menu.children}" var="secondChild"
-									varStatus="status">
+								<c:forEach items="${menu.children}" var="secondChild" varStatus="status">
 									<c:if test="${not empty secondChild.url }">
-										<li><a href="<c:url value='${secondChild.url }'/>">${secondChild.name }</a>
+										<li>
+											<a href="<c:url value='${secondChild.url }'/>">${secondChild.name }</a>
 										</li>
 									</c:if>
 									<!-- 二级菜单url为空，表示还有三级菜单 -->
 									<c:if test="${empty secondChild.url }">
-										<li><a href="#">${secondChild.name }<span
-												class="fa arrow"></span></a>
+										<li>
+											<a href="#">${secondChild.name }<span class="fa arrow"></span></a>
 											<ul class="nav nav-third-level">
 												<c:forEach items="${secondChild.children}"
 													var="thirdChild" varStatus="status">

@@ -29,7 +29,7 @@ public class MenuUtil {
 			}
 		}
 		// 把子菜单的子菜单再循环一遍
-		for (Menu menu : childList) {// 没有url子菜单还有子菜单
+		for (Menu menu : childList) {// 没有url子菜单的还有子菜单
 			if (StringUtils.isBlank(menu.getUrl())) {
 				// 递归
 				menu.setChildren(getChild(menu.getId(), rootMenu));

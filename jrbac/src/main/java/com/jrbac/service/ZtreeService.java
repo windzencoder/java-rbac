@@ -37,11 +37,11 @@ public class ZtreeService {
 			ztree.setName(menu.getName());
 			ztree.setIcon(menu.getIcon());
 			if (menu.getName().equals("个人设置") || menu.getName().equals("后台首页")) {
-				ztree.setChecked(true);
-				ztree.setChkDisabled(true);
+				ztree.setChecked(true);//被选中 
+				ztree.setChkDisabled(true);//被禁用
 			}
 			if (StringUtils.isNotBlank(menu.getIcon())) {
-				ztree.setOpen(true);
+				ztree.setOpen(true);//展开
 			}
 			ztreeList.add(ztree);
 

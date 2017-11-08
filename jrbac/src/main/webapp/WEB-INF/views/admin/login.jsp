@@ -98,7 +98,7 @@
 		$("#login-btn").attr("disabled", false);
 		var ctx = $("#ctx").val().trim();//context的路径
 		var msg = $("#msg").val().trim();//后台传过来的消息
-		var key = $("#key").val().trim();//uuid
+		var key = $("#key").val().trim();//uuid 后台传递过来的des加密的key
 		// 显示后台传过来的消息
 		if (msg == '') {
 			// console.info('啥也没有');

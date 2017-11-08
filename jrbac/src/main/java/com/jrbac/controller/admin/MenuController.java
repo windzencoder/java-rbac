@@ -45,7 +45,7 @@ public class MenuController {
 		String title = "菜单管理";
 		LoginUser loginUser = (LoginUser) session.getAttribute(SessionParam.LOGIN_USER);
 		if (null != loginUser) {
-			List<Menu> menuList = menuService.queryAll(loginUser);
+			List<Menu> menuList = menuService.queryAll(loginUser);//菜单数据
 			model.addAttribute(Param.MENU_LIST, menuList);
 		}
 		model.addAttribute("title", title);
